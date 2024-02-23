@@ -1,6 +1,5 @@
 package task2;
 
-import task2.FileWork;
 import task2.Node.SimpleLinkedList;
 
 public class Main {
@@ -34,5 +33,13 @@ public class Main {
 
         FileWork.addNodeInSimpleLinkedListViaMyFinishPath("NodesFromFileInCodeSLList", simpleLinkedList);
         FileWork.addFromCodeToFile(simpleLinkedList, "NodesFromCodeInFile");
+
+        simpleLinkedList.clear();
+        simpleLinkedList.add("df");
+        simpleLinkedList.add("df");
+        simpleLinkedList.add("df");
+        simpleLinkedList.add("df");
+        simpleLinkedList.showValues();
+        System.out.println(simpleLinkedList.getSize());
     }
 }

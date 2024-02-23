@@ -9,9 +9,7 @@ import java.util.Scanner;
 
 public class FileWork {
     private static File file;
-    private static int size = SimpleLinkedList.getSizeStatic();
 
-    // Добавление через мой путь
     public static void addNodeInSimpleLinkedListViaMyFinishPath(String nameFile, SimpleLinkedList array) {
         file = new File(String.format("C:\\Users\\stepa\\IdeaProjects\\task2\\src\\%s", nameFile));
         addElementsInSimpleLinkedList(array);
@@ -33,9 +31,14 @@ public class FileWork {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+        String value = "";
+        for (int i = 0; i < array.getSize(); i++) {
+            try{
+                value = array.get(i).getValue();
+            } catch (NullPointerException e){
 
-        for (int i = 0; i < size; i++) {
-            String value = array.get(i).getValue();
+            }
+
             printWriter.printf("%s\n", value);
         }
 
@@ -54,10 +57,8 @@ public class FileWork {
 
         while (scanner.hasNextLine()) {
             array2.add(scanner.nextLine());
-            size++;
         }
 
         scanner.close();
     }
 }
-

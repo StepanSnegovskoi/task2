@@ -45,7 +45,7 @@ public class FrameMain extends JFrame {
             }
         });
 
-        // Вывод результата в интерфейсе
+        // Решение и вывод результата в интерфейсе
         result.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,6 +73,7 @@ public class FrameMain extends JFrame {
                 for(int i = 0; i < simpleLinkedList.getSize(); i++){
                     if (textAreaForDeleteElementByValue.getText().equals(simpleLinkedList.get(i).getValue())){
                         simpleLinkedList.remove(textAreaForDeleteElementByValue.getText().trim());
+                        break;
                     }
                 }
                 restartGUIText(simpleLinkedList);
@@ -85,6 +86,8 @@ public class FrameMain extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 simpleLinkedList.removeAt(Integer.parseInt(textAreaForDeleteByIndex.getText().trim()));
                 restartGUIText(simpleLinkedList);
+                System.out.println(simpleLinkedList.getSize());
+
             }
         });
 
