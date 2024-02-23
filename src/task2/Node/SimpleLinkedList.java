@@ -1,4 +1,6 @@
-package Node;
+package task2.Node;
+
+import task2.Node.Node;
 
 public class SimpleLinkedList {
     private Node first = null;
@@ -110,7 +112,22 @@ public class SimpleLinkedList {
             }
         }
     }
-    // Текст для оконного интерфейса, вставлять в textArea.setText(makeTextForGUI);
+
+    // Проверка на уникальность списка, нужна потому, что если использовать только 1 раз removingRepetitions, то он удалит не все нужные элементы
+    private boolean CheckUniqueElements() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if ((getNode(i).getValue()).equals(getNode(j).getValue())) {
+                    if (i != j) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    // Текст для оконного интерфейса, вставляется в textAreaForResult;
     protected String makeTextForGUI(){
         StringBuilder str = new StringBuilder();
         for(int i = 0; i < size; i++){
@@ -131,19 +148,5 @@ public class SimpleLinkedList {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
-    }
-
-    // Проверка на уникальность списка, нужна потому, что если использовать только 1 раз removingRepetitions, то он удалит не все нужные элементы
-    private boolean CheckUniqueElements() {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if ((getNode(i).getValue()).equals(getNode(j).getValue())) {
-                    if (i != j) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
     }
 }

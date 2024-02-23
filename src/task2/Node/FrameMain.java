@@ -1,11 +1,12 @@
-package Node;
+package task2.Node;
+
+import task2.FileWork;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FrameMain extends JFrame {
-
     private JPanel mainPanel;
     private JTextArea textAreaForResult;
     private JButton outputInFile;

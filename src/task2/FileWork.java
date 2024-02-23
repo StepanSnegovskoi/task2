@@ -1,4 +1,6 @@
-package Node;
+package task2;
+
+import task2.Node.SimpleLinkedList;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package Node;
+package task2.Node;
 
 public class Node {
 
