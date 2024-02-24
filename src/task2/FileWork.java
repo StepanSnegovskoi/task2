@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class FileWork {
     private static File file;
 
-    public static void addNodeInSimpleLinkedListViaMyFinishPath(String nameFile, SimpleLinkedList array) {
+    public static void addNodeInSimpleLinkedListThroughMyFinishPath(String nameFile, SimpleLinkedList array) {
         file = new File(String.format("C:\\Users\\stepa\\IdeaProjects\\task2\\src\\%s", nameFile));
         addElementsInSimpleLinkedList(array);
     }
@@ -31,6 +31,7 @@ public class FileWork {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+
         String value = "";
         for (int i = 0; i < array.getSize(); i++) {
             try{
@@ -38,27 +39,22 @@ public class FileWork {
             } catch (NullPointerException e){
 
             }
-
             printWriter.printf("%s\n", value);
         }
-
         printWriter.close();
     }
 
-    // Получение values из файла сканером, добавление через метод add в лист
+    // Получение values из файла сканером, добавление через метод add в лист. В файле на каждой строке один элемент
     private static void addElementsInSimpleLinkedList(SimpleLinkedList array2) {
         Scanner scanner;
-
         try {
             scanner = new Scanner(file);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-
         while (scanner.hasNextLine()) {
             array2.add(scanner.nextLine());
         }
-
         scanner.close();
     }
 }

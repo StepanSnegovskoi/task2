@@ -31,7 +31,7 @@ public class Main {
         simpleLinkedList.showValues();
         System.out.println("\n" + simpleLinkedList.getSize() + " Size");
 
-        FileWork.addNodeInSimpleLinkedListViaMyFinishPath("NodesFromFileInCodeSLList", simpleLinkedList);
+        FileWork.addNodeInSimpleLinkedListThroughMyFinishPath("NodesFromFileInCodeSLList", simpleLinkedList);
         FileWork.addFromCodeToFile(simpleLinkedList, "NodesFromCodeInFile");
 
         simpleLinkedList.clear();

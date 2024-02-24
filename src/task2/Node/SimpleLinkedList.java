@@ -1,11 +1,9 @@
 package task2.Node;
 
-import task2.FileWork;
-
 public class SimpleLinkedList {
     private Node first = null;
     private Node last = null;
-    protected static int size = 0;
+    private static int size = 0;
 
     public Node get(int index) {
         return getNode(index);
@@ -26,7 +24,6 @@ public class SimpleLinkedList {
             secondLast.next = last;
         }
         size++;
-        //FileWork.increaseSizeBy1();
     }
 
     public void add(String str, int index) {
@@ -45,9 +42,7 @@ public class SimpleLinkedList {
             Node prevNode = getNode(index - 1);
             prevNode.next = newNode;
         }
-
         size++;
-        //FileWork.increaseSizeBy1();
     }
 
     public boolean remove(String str) {
@@ -60,12 +55,13 @@ public class SimpleLinkedList {
             node = node.next;
         }
         size--;
-        //FileWork.decreaseSizeBy1();
         return false;
     }
 
     public boolean removeAt(int index) {
-        checkIndex(index);
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
         if (index == 0) {
             first = first.next;
         } else {
@@ -78,16 +74,13 @@ public class SimpleLinkedList {
                 last = prev;
             }
         }
-
         size--;
-        //FileWork.decreaseSizeBy1();
         return true;
     }
 
     public void clear() {
         first = last = new Node(null, null);
         size = 0;
-        //FileWork.clearFileWorkListSize();
     }
 
     public static int getSizeStatic() {
@@ -133,12 +126,12 @@ public class SimpleLinkedList {
     }
 
     // Текст для оконного интерфейса, вставляется в textAreaForResult;
-    protected String makeTextForGUI(){
+    protected String makeElementsToStringForGUI(){
         StringBuilder str = new StringBuilder();
         for(int i = 0; i < size; i++){
             str.append(getNode(i).getValue());
             if(i < size - 1){
-                str.append(" ");
+                str.append("   ||   ");
             }
         }
         return str.toString();
