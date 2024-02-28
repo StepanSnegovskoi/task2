@@ -1,10 +1,10 @@
-package task2.Node;
+package task2;
 
-import task2.FileWork;
+import task2.Node.SimpleLinkedList;
 
 import javax.swing.*;
 
-public class FrameMain extends JFrame {
+public class GUI extends JFrame {
     private JPanel mainPanel;
     private JTextArea textAreaForResult;
     private JButton outputToFile;
@@ -18,7 +18,7 @@ public class FrameMain extends JFrame {
     private JTextArea textAreaForDeleteByIndex;
     private JButton clearList;
 
-    public FrameMain() {
+    public GUI() {
         SimpleLinkedList simpleLinkedList = new SimpleLinkedList();
 
         setContentPane(mainPanel);
@@ -27,10 +27,12 @@ public class FrameMain extends JFrame {
         setSize(1000, 600);
         setLocationRelativeTo(null);
         setVisible(true);
+        textAreaForResult.setLineWrap(true);
+        textAreaForResult.setEditable(true);
 
         // Добавление элементов из файла в список
         inputFromFile.addActionListener(e -> {
-            FileWork.addNodeInSimpleLinkedListThroughMyFinishPath("NodesFromFileInGUI", simpleLinkedList);
+            FileWork.addNodeInSimpleLinkedListThroughMyFinishPath(simpleLinkedList);
             //FileWork.addNodeFromFilePathInSimpleLinkedList("NodesFromFileInGUI", ...);
             showElementsInGUI(simpleLinkedList);
         });
@@ -96,6 +98,6 @@ public class FrameMain extends JFrame {
     }
 
     public static void main(String[] args) {
-        new FrameMain();
+        new GUI();
     }
 }

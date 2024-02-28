@@ -8,22 +8,24 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class FileWork {
+    private static final File MYFILEFROMPATH = new File("C:\\Users\\stepa\\IdeaProjects\\task2\\src\\NodesFromFileInCodeSLList");
     private static File file;
+    public static final String PATHTOMYFILE = "C:\\Users\\stepa\\IdeaProjects\\task2\\src\\NodesFromFileInCodeSLList";
 
-    public static void addNodeInSimpleLinkedListThroughMyFinishPath(String nameFile, SimpleLinkedList array) {
-        file = new File(String.format("C:\\Users\\stepa\\IdeaProjects\\task2\\src\\%s", nameFile));
-        addElementsInSimpleLinkedList(array);
+    public static void addNodeInSimpleLinkedListThroughMyFinishPath(SimpleLinkedList array) {
+        addElementsInSimpleLinkedList(array, MYFILEFROMPATH);
     }
 
     // Добавление через путь пользователя
     public static void addNodeFromFilePathInSimpleLinkedList(String pathToFile, SimpleLinkedList array) {
         file = new File(String.format("%s", pathToFile));
-        addElementsInSimpleLinkedList(array);
+        addElementsInSimpleLinkedList(array, file);
     }
 
     // Получение value, с каждой новой строки записывается value в файл
-    public static void addFromCodeToFile(SimpleLinkedList array, String fileName) {
-        File file = new File(String.format("C:\\Users\\stepa\\IdeaProjects\\task2\\src\\%s", fileName));
+    public static void addFromCodeToFile(SimpleLinkedList array, String pathToFile) {
+        //File file = new File(String.format("C:\\Users\\stepa\\IdeaProjects\\task2\\src\\%s", fileName));
+        File file = new File(String.format(pathToFile));
         PrintWriter printWriter;
 
         try {
@@ -45,7 +47,7 @@ public class FileWork {
     }
 
     // Получение values из файла сканером, добавление через метод add в лист. В файле на каждой строке один элемент
-    private static void addElementsInSimpleLinkedList(SimpleLinkedList array2) {
+    private static void addElementsInSimpleLinkedList(SimpleLinkedList array2, File file) {
         Scanner scanner;
         try {
             scanner = new Scanner(file);

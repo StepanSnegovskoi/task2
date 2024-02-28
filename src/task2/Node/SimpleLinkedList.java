@@ -122,11 +122,12 @@ public class SimpleLinkedList {
                 }
             }
         }
+
         return true;
     }
 
     // Текст для оконного интерфейса, вставляется в textAreaForResult;
-    protected String makeElementsToStringForGUI(){
+    public String makeElementsToStringForGUI(){
         StringBuilder str = new StringBuilder();
         for(int i = 0; i < size; i++){
             str.append(getNode(i).getValue());
