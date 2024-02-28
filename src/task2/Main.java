@@ -2,8 +2,6 @@ package task2;
 
 import task2.Node.SimpleLinkedList;
 
-import static task2.FileWork.PATHTOMYFILE;
-
 public class Main {
     public static void main(String[] args) {
         SimpleLinkedList simpleLinkedList = new SimpleLinkedList();
@@ -31,17 +29,17 @@ public class Main {
 
         simpleLinkedList.removingRepetitions();
         simpleLinkedList.showValues();
-        System.out.println("\n" + simpleLinkedList.getSize() + " Size");
+        System.out.println("\n" + simpleLinkedList.getSize() + " Size\n");
 
         FileWork.addNodeInSimpleLinkedListThroughMyFinishPath(simpleLinkedList);
-        FileWork.addFromCodeToFile(simpleLinkedList, PATHTOMYFILE);
+        FileWork.addFromCodeToFile(simpleLinkedList, "C:\\Users\\stepa\\IdeaProjects\\task2\\src\\nodesFromCodeInFile");
 
         simpleLinkedList.clear();
-        simpleLinkedList.add("df");
-        simpleLinkedList.add("df");
-        simpleLinkedList.add("df");
-        simpleLinkedList.add("df");
+        simpleLinkedList.add("1");
+        simpleLinkedList.add("12");
+        simpleLinkedList.add("123");
+        simpleLinkedList.add("1234");
         simpleLinkedList.showValues();
-        System.out.println(simpleLinkedList.getSize());
+        System.out.println("\n" + simpleLinkedList.getSize() + " Size");
     }
 }

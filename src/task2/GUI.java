@@ -28,7 +28,7 @@ public class GUI extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         textAreaForResult.setLineWrap(true);
-        textAreaForResult.setEditable(true);
+        textAreaForResult.setEditable(false);
 
         // Добавление элементов из файла в список
         inputFromFile.addActionListener(e -> {
@@ -38,7 +38,7 @@ public class GUI extends JFrame {
         });
 
         // Вывод элементов в файл
-        outputToFile.addActionListener(e -> FileWork.addFromCodeToFile(simpleLinkedList, "NodesFromGUIInFile"));
+        outputToFile.addActionListener(e -> FileWork.addFromCodeToFile(simpleLinkedList, "C:\\Users\\stepa\\IdeaProjects\\task2\\src\\NodesFromGUIInFile"));
 
         // Решение и вывод результата в интерфейсе
         result.addActionListener(e -> {
@@ -51,7 +51,7 @@ public class GUI extends JFrame {
         // Добавление в список элемента сверху
         addUp.addActionListener(e -> {
             if (!textAreaForAddElement.getText().isEmpty()) {
-                simpleLinkedList.add(textAreaForAddElement.getText());
+                simpleLinkedList.add(textAreaForAddElement.getText().trim());
             }
             showElementsInGUI(simpleLinkedList);
         });
@@ -60,7 +60,7 @@ public class GUI extends JFrame {
         deleteByValue.addActionListener(e -> {
             int currSize = simpleLinkedList.getSize();;
             for(int i = 0; i < simpleLinkedList.getSize(); i++){
-                if (textAreaForDeleteElementByValue.getText().equals(simpleLinkedList.get(i).getValue())){
+                if (textAreaForDeleteElementByValue.getText().trim().equals(simpleLinkedList.get(i).getValue())){
                     simpleLinkedList.removeAt(i);
                     break;
                 }
@@ -76,11 +76,9 @@ public class GUI extends JFrame {
             checkError(simpleLinkedList, index);
             simpleLinkedList.removeAt(index);
             showElementsInGUI(simpleLinkedList);
-            System.out.println(simpleLinkedList.getSize());
         });
 
         clearList.addActionListener(e -> {
-            checkError(simpleLinkedList, 0);
             simpleLinkedList.clear();
             textAreaForResult.setText("");
         });

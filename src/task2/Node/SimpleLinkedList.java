@@ -131,8 +131,8 @@ public class SimpleLinkedList {
         StringBuilder str = new StringBuilder();
         for(int i = 0; i < size; i++){
             str.append(getNode(i).getValue());
-            if(i < size - 1){
-                str.append("   ||   ");
+            if(i < size - 1 && i != size){
+                str.append("  ||  ");
             }
         }
         return str.toString();

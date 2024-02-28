@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class FileWork {
     private static final File MYFILEFROMPATH = new File("C:\\Users\\stepa\\IdeaProjects\\task2\\src\\NodesFromFileInCodeSLList");
     private static File file;
-    public static final String PATHTOMYFILE = "C:\\Users\\stepa\\IdeaProjects\\task2\\src\\NodesFromFileInCodeSLList";
 
     public static void addNodeInSimpleLinkedListThroughMyFinishPath(SimpleLinkedList array) {
         addElementsInSimpleLinkedList(array, MYFILEFROMPATH);
